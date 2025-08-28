@@ -7,19 +7,46 @@ crea delle funzioni riutilizzabili
 */
 
 const apiEndpoint = "https://swapi.info/api/people"
+const cardEl = document.getElementsByClassName("card");
+const cardBodyEl = document.getElementsByClassName("card-body");
+const cardTitleEl = document.getElementsByClassName("card-title");
+const cardTextEl = document.getElementsByClassName("card-text");
+const cardContainerEl = document.querySelector("container")
+
+
 
 // chiamata ajax
 fetch(apiEndpoint)
     .then((res) => res.json())
-    //nella risposta mostra nomi dei personaggi + for each
+    //nella risposta mostra array + for each
     .then((people) => {
         console.log(people)
-        people.forEach(people => {
-            const li = document.createElement("li");
-            li.textContent = people.name;
-            const characterListEl = document.getElementById("characterList")
-            characterListEl.appendChild(li)
-            console.log(people.name)
+
+        people.forEach(person => {
+            createCard(person);
         })
+
     })
     .catch((error) => console.log(error))
+
+//funzione per creare nuova card
+function createCard(person) {
+    const cardEl = document.createElement("div");
+    cardEl.classList.add("card");
+    const cardBodyEl = document.createElement("div");
+    cardBodyEl.classList.add("card-body");
+    const cardContainerEl = document.createElement("div");
+    cardContainerEl.classList.add("cardContainerEl");
+    const cardTitleEl = document.createElement("h5");
+    cardTitleEl.classList.add("card-title");
+    cardTitleEl.textContent = person.name;
+    const cardTextEl = document.createElement("p");
+    cardTextEl.classList.add("card-text");
+    cardTextEl.textContent = person.film;
+    cardBodyEl.appendChild(cardTitleEl);
+    cardBodyEl.appendChild(cardTextEl);
+    cardEl.appendChild(cardContainerEl);
+
+
+
+}
