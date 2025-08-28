@@ -33,20 +33,23 @@ fetch(apiEndpoint)
 function createCard(person) {
     const cardEl = document.createElement("div");
     cardEl.classList.add("card");
+
     const cardBodyEl = document.createElement("div");
     cardBodyEl.classList.add("card-body");
+
     const cardContainerEl = document.createElement("div");
     cardContainerEl.classList.add("cardContainerEl");
+
     const cardTitleEl = document.createElement("h5");
     cardTitleEl.classList.add("card-title");
     cardTitleEl.textContent = person.name;
+
     const cardTextEl = document.createElement("p");
     cardTextEl.classList.add("card-text");
     cardTextEl.textContent = person.film;
+
     cardBodyEl.appendChild(cardTitleEl);
     cardBodyEl.appendChild(cardTextEl);
     cardEl.appendChild(cardContainerEl);
-
-
 
 }
