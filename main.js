@@ -7,11 +7,7 @@ crea delle funzioni riutilizzabili
 */
 
 const apiEndpoint = "https://swapi.info/api/people"
-const cardEl = document.getElementsByClassName("card");
-const cardBodyEl = document.getElementsByClassName("card-body");
-const cardTitleEl = document.getElementsByClassName("card-title");
-const cardTextEl = document.getElementsByClassName("card-text");
-const cardContainerEl = document.querySelector("container")
+const cardContainerEl = document.querySelector(".container")
 
 
 
@@ -23,7 +19,8 @@ fetch(apiEndpoint)
         console.log(people)
 
         people.forEach(person => {
-            createCard(person);
+            const card = createCard(person);
+            cardContainerEl.append(card);
         })
 
     })
