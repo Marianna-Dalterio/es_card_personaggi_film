@@ -26,6 +26,7 @@ fetch(apiEndpoint)
     })
     .catch((error) => console.log(error))
 
+
 //funzione per creare nuova card
 function createCard(person) {
     const cardEl = document.createElement("div");
@@ -47,6 +48,6 @@ function createCard(person) {
 
     cardBodyEl.appendChild(cardTitleEl);
     cardBodyEl.appendChild(cardTextEl);
-    cardEl.appendChild(cardContainerEl);
-
+    cardEl.appendChild(cardBodyEl);
+    return cardEl
 }
